@@ -11,11 +11,11 @@ SELECT month, day, year, sex FROM surveys WHERE species_id = "DS";
 spectabilis_population_data.csv
 
 Obtain data only for MALE spectabilis population, when caught
-SELECT month, day, year FROM surveys WHERE (species_id = "DS" and sex = "M");
+SELECT month, day, year FROM surveys WHERE (species_id = "DS" AND sex = "M");
 spectabilis_population_data_males.csv
 
 Obtain data only for FEMALE spectabilis population, when caught
-SELECT month, day, year FROM surveys WHERE (species_id = "DS" and sex = "F");
+SELECT month, day, year FROM surveys WHERE (species_id = "DS" AND sex = "F");
 spectabilis_population_data_females.csv
 
 Obtain data for greatest weight of rodent, showing species_id, year, and weight
@@ -23,7 +23,7 @@ SELECT surveys.species_id, year, weight FROM surveys JOIN species ON surveys.spe
 100_largest_indviduals.csv
 
 Obtain data for dates sampled with no duplicates
-SELECT month, day, year FROM surveys GROUP BY month, day, year ORDER BY year ASC;
+SELECT year, month, day FROM surveys GROUP BY month, day, year ORDER BY year ASC;
 
 Obtain data with no missing information
 SELECT month, day, year, species_id, weight FROM surveys WHERE (weight IS NOT NULL AND species_id IS NOT NULL);
