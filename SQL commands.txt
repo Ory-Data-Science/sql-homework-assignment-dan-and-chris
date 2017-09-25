@@ -97,3 +97,9 @@ WHERE ((plot_type = "Control" OR plot_type = "Long-term Krat Exclosure") AND tax
 
 13.
 individuals_per_plot_type
+SELECT plot_type, COUNT (*) AS individuals_sampled
+FROM surveys
+JOIN species ON surveys.species_id = species.species_id 
+JOIN plots ON plots.plot_id = surveys.plot_id
+WHERE taxa = "Rodent"
+GROUP BY plot_type;
